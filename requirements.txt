@@ -1,0 +1,8 @@
+# Python 3.13.5; исследование, приложение и запуск ноутбука.
+-r requirements-app.txt
+matplotlib==3.10.8
+seaborn==0.13.2
+openpyxl==3.1.5
+ipython==9.14.0
+ipykernel==7.2.0
+jupyterlab==4.5.3

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прогноз свойств композитов</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">ВКР · DATA SCIENCE PRO</p>
+    <h1>Прогноз свойств композитов</h1>
+    <p class="subtitle">Локальное приложение · вычисления в Python · сохранённые модели</p>
+  </header>
+  <nav aria-label="Режим прогноза">$tabs</nav>
+  <section class="card">
+    <h2>$title</h2>
+    <p class="intro">Введите $feature_count показателей в исходных единицах. Допустимы точка, запятая и научная запись.</p>
+    $error
+    <form id="prediction-form" method="post" action="/predict">
+      <input type="hidden" name="mode" value="$mode">
+      <div class="grid">$fields</div>
+      <div class="actions">
+        <button type="submit">Рассчитать прогноз</button>
+        <button type="button" class="secondary" id="fill-example">Заполнить пример</button>
+        <button type="button" class="secondary" id="clear-form">Очистить</button>
+      </div>
+      <p class="example-note">Пример — строка 604 обучающей выборки, а не рекомендуемый состав.</p>
+    </form>
+    <p id="stale-result" class="stale" hidden role="status">Данные изменены — выполните расчёт повторно.</p>
+    $result
+  </section>
+  <footer><b>Учебная демонстрация.</b> Устойчивое преимущество моделей перед прогнозом среднего не подтверждено. Прогноз не заменяет физические испытания и не определяет оптимальный состав. Данные обрабатываются только на этом компьютере.</footer>
+  <noscript><p class="warning">Для кнопки примера и автоматического скрытия старого результата включите JavaScript. Сам расчёт выполняется сервером Python.</p></noscript>
+</main>
+</body>
+</html>
