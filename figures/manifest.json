@@ -1,0 +1,87 @@
+{
+  "1": {
+    "file": "figure_01.png",
+    "description": "Гистограммы 13 исходных показателей; 1023 строки; 20 интервалов.",
+    "sha256": "4e0e875ce25e2c88985143b0fd08d1611e90846b152fe1f9a9c8c69347b54893"
+  },
+  "2": {
+    "file": "figure_02.png",
+    "description": "Квартильные диаграммы 13 исходных показателей; правило 1,5 IQR.",
+    "sha256": "b722e580fce434473818ee1ef8132ee0b814166dfcff942fec274afc84f5d3bb"
+  },
+  "3": {
+    "file": "figure_03.png",
+    "description": "Корреляционная матрица описательной выборки df_clean.",
+    "sha256": "7072c18dc3852f25ec7a1559db3bfc9c708e3bb1ea73b45471bb2eb5bfce63a7"
+  },
+  "4": {
+    "file": "figure_04.png",
+    "description": "Пары P5/P8, P2/P9 и P10/P1; 936 строк df_clean.",
+    "sha256": "4e662992adf844aa1fedfe693b1f3728ca712eb7365e3c9b31ae2029a90835c5"
+  },
+  "6": {
+    "file": "figure_06.png",
+    "description": "P1: Соотношение матрица-наполнитель; распределения до и после MinMaxScaler.",
+    "sha256": "7b13f20250a79788e76f7d61e3a7dc11fe78a5b3b56d9c02ac0614ce2c902ba7"
+  },
+  "7": {
+    "file": "figure_07.png",
+    "description": "P2: Плотность, кг/м3; распределения до и после MinMaxScaler.",
+    "sha256": "79e617216fdd076cbedb9ae6fcda10f8d63faefd6066b13a46a0dc4e157e97be"
+  },
+  "8": {
+    "file": "figure_08.png",
+    "description": "P3: модуль упругости, ГПа; распределения до и после MinMaxScaler.",
+    "sha256": "e83634494378cc6ed1936e585f112a2445a34fddf69165c113af203213466bb2"
+  },
+  "9": {
+    "file": "figure_09.png",
+    "description": "P4: Количество отвердителя, м.%; распределения до и после MinMaxScaler.",
+    "sha256": "43c17021a079c9703066d8037eccda9c03353576dede4b7bfe9950114021bfeb"
+  },
+  "10": {
+    "file": "figure_10.png",
+    "description": "P5: Содержание эпоксидных групп,%_2; распределения до и после MinMaxScaler.",
+    "sha256": "4e26e446937f4f1ea773e9de223c60de0745741a9c9db82e2de064cc897cfc87"
+  },
+  "11": {
+    "file": "figure_11.png",
+    "description": "P6: Температура вспышки, С_2; распределения до и после MinMaxScaler.",
+    "sha256": "22cc127073160c6de4e095128fabc68a84518eb2ddadb9a6b836411b4e436a2d"
+  },
+  "12": {
+    "file": "figure_12.png",
+    "description": "P7: Поверхностная плотность, г/м2; распределения до и после MinMaxScaler.",
+    "sha256": "5148e930a7356ceec8d1f1d1470afbf7eb23d532ff7b775f1882a262c021116c"
+  },
+  "13": {
+    "file": "figure_13.png",
+    "description": "P10: Потребление смолы, г/м2; распределения до и после MinMaxScaler.",
+    "sha256": "5d7971ed4ca172b67c1eb490b7283d162aac76c34ad4fbc6299e9834843b5080"
+  },
+  "14": {
+    "file": "figure_14.png",
+    "description": "P11: Угол нашивки, град; распределения до и после MinMaxScaler.",
+    "sha256": "7d6aacd268ec3256de23383693aa11ba77b2f8b9d7b4f5a9c876df1fbae0230d"
+  },
+  "15": {
+    "file": "figure_15.png",
+    "description": "P12: Шаг нашивки; распределения до и после MinMaxScaler.",
+    "sha256": "0f7cb1a76755d620e33309c44e885cda4e125a11a33faa482b2202e827023457"
+  },
+  "16": {
+    "file": "figure_16.png",
+    "description": "P13: Плотность нашивки; распределения до и после MinMaxScaler.",
+    "sha256": "9f70dcda3bd32c2a4fe2fc8ae456bc2d1aa3ade25f5d06e1f28a0aa31508f221"
+  },
+  "17": {
+    "file": "figure_17.png",
+    "description": "Наблюдения и прогнозы выбранных Ridge; 307 неизменённых тестовых строк.",
+    "sha256": "eb01dcf4a20e1f17d74e26a4d10587e94f3a4a946786b4b448d630e01325e7f5"
+  },
+  "19": {
+    "file": "figure_19.png",
+    "description": "Функция потерь обучения выбранного MLPRegressor; не тестовая MAE.",
+    "sha256": "d6057bb5ed9e355e2f51cba33d085c0303bad7eefc01a51032925742fd88d1ff"
+  }
+}

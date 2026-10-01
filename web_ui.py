@@ -6,6 +6,10 @@ from pathlib import Path
 from string import Template
 from typing import Mapping
 
+from sklearn.linear_model import Ridge
+from sklearn.neural_network import MLPRegressor
+from sklearn.pipeline import Pipeline
+
 from prediction import ANGLE, Prediction, PredictionService, Task
 
 TEMPLATE_PATH = Path(__file__).resolve().parent / "templates" / "page.html"
@@ -42,7 +46,30 @@ def render_field(task: Task, index: int, value: str | float) -> str:
     )
 
 
-def render_result(result: Prediction | None, mode: str) -> str:
+def describe_model(pipeline: Pipeline) -> str:
+    """Описание фактически загруженной модели без повторения её настроек в UI."""
+    estimator = pipeline.named_steps["model"]
+    if isinstance(estimator, Ridge):
+        return f"Ridge, alpha = {estimator.alpha:g}"
+    if isinstance(estimator, MLPRegressor):
+        # Размеры обученных матриц, а не заранее заданная строка архитектуры.
+        sizes = (estimator.coefs_[0].shape[0],
+                 *(weights.shape[1] for weights in estimator.coefs_))
+        return "MLP, " + " → ".join(map(str, sizes))
+    return type(estimator).__name__
+
+
+def describe_task_models(task: Task) -> str:
+    descriptions = {target: describe_model(model)
+                    for target, model in task.models.items()}
+    unique = tuple(dict.fromkeys(descriptions.values()))
+    if len(unique) == 1:
+        return unique[0]
+    return "; ".join(f"{target}: {description}"
+                     for target, description in descriptions.items())
+
+
+def render_result(result: Prediction | None, task: Task) -> str:
     if result is None:
         return ""
     items = "".join(
@@ -57,7 +84,7 @@ def render_result(result: Prediction | None, mode: str) -> str:
             '<aside class="warning"><b>Осторожно: выход за диапазон обучения</b>'
             f'<ul>{notes}</ul><p>Надёжность такого прогноза не подтверждена.</p></aside>'
         )
-    model_name = "Ridge, alpha = 100" if mode == "properties" else "MLP, 10 → 16 → 1"
+    model_name = escape(describe_task_models(task))
     return (
         f'<section id="prediction-result" aria-live="polite">{warning}'
         f'<div class="result"><h2>Результат расчёта</h2>{items}'
@@ -93,5 +120,5 @@ def render_page(
         tabs=render_tabs(mode), title=escape(task.title),
         feature_count=len(task.features), error=error_html,
         mode=escape(mode, quote=True), fields=fields,
-        result=render_result(result, mode),
+        result=render_result(result, task),
     )
